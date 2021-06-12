@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\BukuController;
+use App\Exports\BukuExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
+Route::get('/buku', 'BukuController@index');
+Route::get('/buku/export_excel', 'BukuController@export_excel');
+Route::resource('buku', BukuController::class);
